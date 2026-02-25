@@ -20,6 +20,7 @@ const baseChartOptions: Options = {
 		gridLineColor: "rgba(255,255,255,0.15)",
 	},
 	legend: {
+		enabled: false,
 		itemStyle: { color: "#e2e8f0" },
 		itemHoverStyle: { color: "#ffffff" },
 		itemHiddenStyle: { color: "rgba(226,232,240,0.45)" },
