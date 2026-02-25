@@ -1,6 +1,7 @@
 import { Box, Flex } from "@chakra-ui/react";
 import { ChartBox } from "./components/ChartBox";
 import { Header } from "./components/Header";
+import { OrdersPerCountry } from "./components/OrdersPerCountry";
 import { RevenuePerCategory } from "./components/RevenuePerCategory";
 import { RevenuePerDay } from "./components/RevenuePerDay";
 
@@ -18,8 +19,8 @@ function App() {
 					<RevenuePerCategory />
 				</ChartBox>
 
-				<ChartBox title="test 3" accent="#d96bff">
-					<></>
+				<ChartBox title="Liczba zamówień według kraju" accent="#d96bff">
+					<OrdersPerCountry />
 				</ChartBox>
 			</Flex>
 		</Box>
