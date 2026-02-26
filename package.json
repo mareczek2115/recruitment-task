@@ -7,6 +7,7 @@
 		"dev": "vite",
 		"build": "tsc -b && vite build",
 		"preview": "vite preview",
+		"test": "vitest",
 		"postinstall": "husky",
 		"biome:lint": "biome lint --fix",
 		"biome:format": "biome format --write",
@@ -34,7 +35,8 @@
 		"husky": "^9.1.7",
 		"lint-staged": "^16.2.7",
 		"typescript": "~5.9.3",
-		"vite": "^7.3.1"
+		"vite": "^7.3.1",
+		"vitest": "^4.0.18"
 	},
 	"lint-staged": {
 		"src/**/*.(js|jsx|ts|tsx)": "biome check --write"
