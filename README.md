@@ -1,62 +1,60 @@
 # Zadanie rekrutacyjne — Data Visualization (Frontend)
 
-## Kontekst
-Dane w pliku `data.json` pochodzą z platformy **e-commerce** i zawierają informacje o zamówieniach, m.in.:
-- czas,
-- lokalizację (kraj, miasto, dane geograficzne),
-- kategorie produktów,
-- ilości,
-- ceny,
-- dodatkowe metadane (płatność, typ klienta, urządzenie, czas dostawy).
+Na podstawie danych e-commerce z `data.json` przygotowano 3 wykresy, które pokazują:
+- trend przychodu w czasie,
+- strukturę przychodu po kategoriach,
+- rozkład liczby zamówień po krajach.
 
-Twoim celem jest **zrozumienie danych**, wybranie **niektórych informacji** i przedstawienie ich w **czytelnej, sensownej formie wizualnej** (dataviz).
+## Kluczowe dane i agregacje
+Do wizualizacji wykorzystano pola:
+- `timestamp` - pozwala zbudować oś czasu i pokazać dynamikę sprzedaży,
+- `category` - pokazuje, które grupy produktów napędzają wynik,
+- `country` - pokazuje, gdzie aktywność zakupowa jest największa,
+- `quantity` i `unitPrice` - razem dają realną wartość biznesową (przychód).
 
+Agregacje:
+- przychód: `quantity * unitPrice`,
+- przychód dzienny: suma przychodu po dniu (`YYYY-MM-DD`),
+- przychód według kategorii: suma przychodu po `category`,
+- liczba zamówień według kraju: zliczenie rekordów po `country`.
 
-## Zadanie
-Przeanalizuj dane i:
-- zdecyduj, które pola są dla Ciebie istotne,
-- agreguj dane w sposób, który uznasz za sensowny,
+## Wykresy
+| Wykres | Typ | Co pokazuje | Dlaczego taki wykres |
+| --- | --- | --- | --- |
+| Trend przychodu dziennego | `line` | Zmianę przychodu w czasie | Pokazuje, czy biznes rośnie czy spada w kolejnych dniach, pozwala szybko wyłapać anomalie |
+| Przychód według kategorii | `column` | Porównanie wartości przychodu między kategoriami | Pozwala określić, które kategorie realnie napędzają wynik i gdzie warto wzmacniać ofertę |
+| Liczba zamówień według kraju | `bar` | Ranking krajów według liczby zamówień | Pokazuje, na których rynkach popyt jest najwyższy i gdzie warto kierować działania sprzedażowe |
 
-Przygotuj **maksymalnie 3** wykresy.
-- samodzielnie zdecyduj, **jakie wizualizacje** przygotujesz (na podstawie wybranych przez Ciebie danych),
-- nie narzucamy konkretnych metryk ani podziałów,
-- zależy nam na **selekcji najistotniejszych dla Ciebie informacji**, nie na pokazaniu wszystkiego.
+## Stack technologiczny
+- React 19 + TypeScript
+- Vite
+- Highcharts (`highcharts`, `highcharts-react-official`)
+- Chakra UI
+- Vitest
 
+## Uruchomienie
+Wymagania:
+- Node.js 20+,
+- pnpm
 
-## Opis rozwiązania
-W pliku README dodaj opis, w którym wyjaśnisz:
-- jakie dane uznałeś/aś za kluczowe,
-- dlaczego wybrałeś/aś właśnie takie wizualizacje (typy wykresów).
+Kroki:
+1. Sklonuj repozytorium
+```bash
+git clone https://github.com/mareczek2115/recruitment-task.git
+```
 
+2. Zainstaluj zależności:
+```bash
+pnpm install
+```
+3. Uruchom projekt (dev):
+```bash
+pnpm dev
+```
+Otwórz adres podany przez Vite (domyślnie `http://localhost:5173`).
 
-## Technologia i uruchomienie
-- interesuje nas **wyłącznie wersja desktopowa** (brak wymagań dot. mobile, nie dokładaj sobie niepotrzebnej pracy),
-- **nie narzucamy tech stacku** (technologia nie jest kryterium oceny):
-- framework: dowolny lub brak,
-- biblioteki: także dowolne. W naszej firmie skupiamy się głównie na Highcharts, ale nie wymagamy znajomości akurat tej biblioteki, więc jeśli chcesz użyć innej prostszej - gorąco do tego zachęcamy.
-
-
-## Uruchomienie projektu
-W pliku README opisz także wymagania (np. Node, Python, serwer lokalny) i kroki przydatne dla nas do uruchomienia Twojego projektu.
-Projekt powinien być **łatwy do uruchomienia lokalnie** bez dodatkowych wyjaśnień.
-
-
-## Czas
-Nie oczekujemy kompletnego rozbudowanego produktu.
-Interesuje nas:
-- sposób myślenia,
-- decyzje projektowe,
-- umiejętność pracy na danych,
-- czytelność wizualna. Duży plus za fajny design.
-Nie liczy się ilość/wielkość projektu, tylko jakość połączona z prostotą i umiejętność wytłumaczenia podejścia.
-
-Przewidujemy, że wykonanie zadania powinno zająć maksymalnie kilka godzin.
-Na rozwiazanie masz dokładnie 7 dni licząc od daty otrzymania tego zadania.
-
-
-## Jak zacząć i wysłać rozwiązanie
-- wykonaj fork tego repozytorium na swoje konto GitHub,
-- upewnij się, że wszystkie zmiany są wypchnięte do Twojego repozytorium na GitHubie,
-- wyślij link do swojego repozytorium zawierającego rozwiązanie na adres e-mail: rekrutacja@blacklabel.net
-
-Nie wysyłaj Pull Requesta do tego repozytorium - oceniany będzie wyłącznie kod w Twoim forku.
+## Dodatkowe komendy
+Uruchom testy:
+```bash
+pnpm test
+```
